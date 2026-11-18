@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#142d42" />
+    <meta name="description" content="Learn a language one step at a time with Onestep Languages." />
+    <title>Onestep Languages — Open your world</title>
+    <script>
+      try {
+        const preference = localStorage.getItem("onestep-appearance") || "light";
+        const dark = preference === "dark";
+        document.documentElement.dataset.theme = dark ? "dark" : "light";
+      } catch {
+        document.documentElement.dataset.theme = "light";
+      }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Main navigation">
+        <a class="brand" href="#" data-page="home" aria-label="Onestep Languages home">
+          <svg class="brand-mark" viewBox="0 0 56 48" aria-hidden="true">
+            <path class="brand-book-page" d="M27.8 13.2C22.1 8.7 14.5 8.2 7 10.7v24.8c7.5-2.5 15.1-2 20.8 2.5 5.7-4.5 13.3-5 20.8-2.5V10.7c-7.5-2.5-15.1-2-20.8 2.5Z" />
+            <path class="brand-book-line" d="M27.8 13.2V38M12 16.2v13.1m8.1-14.5v12.9m15.8-11.5v12.9M44 16.2v13.1" />
+            <path class="brand-book-spark" d="m28 3 1.7 4.1L34 9l-4.3 1.8L28 15l-1.7-4.2L22 9l4.3-1.9L28 3Z" />
+          </svg>
+          <span class="brand-copy"><span class="brand-name"><span>One</span><span class="brand-step">Step</span></span><span class="brand-tagline">Learn · Grow · Speak</span></span>
+        </a>
+
+        <section class="sidebar-learner-card" aria-label="Your learning profile">
+          <span class="sidebar-learner-avatar" id="profile-avatar" aria-hidden="true">👤</span>
+          <div class="sidebar-learner-info">
+            <strong id="profile-name">Hi, learner</strong>
+            <span>Keep going!</span>
+            <div class="sidebar-xp-row"><span>⭐ <b id="profile-xp">0 XP</b></span><span id="profile-level">Lv. 1</span></div>
+          </div>
+          <div class="sidebar-xp-track" role="progressbar" aria-label="XP toward next milestone" aria-valuemin="0" aria-valuemax="500" aria-valuenow="0"><span id="profile-xp-progress"></span></div>
+          <small class="sidebar-xp-caption" id="profile-xp-caption">0 / 500 XP</small>
+        </section>
+
+        <nav class="main-nav" id="main-nav" aria-label="Main menu"></nav>
+
+        <a class="sidebar-streak-card" href="#" data-page="progress">
+          <span class="sidebar-streak-icon" aria-hidden="true">🔥</span>
+          <span><strong id="sidebar-streak">0 Day Streak</strong><small>Keep your momentum!</small></span>
+          <span class="sidebar-streak-arrow" aria-hidden="true">›</span>
+        </a>
+      </aside>
+
+      <main class="main-content">
+        <header class="mobile-header">
+          <a class="brand" href="#" data-page="home" aria-label="Onestep Languages home">
+            <svg class="brand-mark" viewBox="0 0 56 48" aria-hidden="true">
+              <path class="brand-book-page" d="M27.8 13.2C22.1 8.7 14.5 8.2 7 10.7v24.8c7.5-2.5 15.1-2 20.8 2.5 5.7-4.5 13.3-5 20.8-2.5V10.7c-7.5-2.5-15.1-2-20.8 2.5Z" />
+              <path class="brand-book-line" d="M27.8 13.2V38M12 16.2v13.1m8.1-14.5v12.9m15.8-11.5v12.9M44 16.2v13.1" />
+              <path class="brand-book-spark" d="m28 3 1.7 4.1L34 9l-4.3 1.8L28 15l-1.7-4.2L22 9l4.3-1.9L28 3Z" />
+            </svg>
+            <span class="brand-copy"><span class="brand-name"><span>One</span><span class="brand-step">Step</span></span><span class="brand-tagline">Learn · Grow · Speak</span></span>
+          </a>
+          <button class="mobile-menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false">☰</button>
+          <a class="avatar avatar-small" id="mobile-avatar" href="#" data-page="profile" aria-label="Profile">👤</a>
+        </header>
+        <div class="utility-bar">
+          <a class="utility-translate" href="#" data-page="translate">🌐 <span>Translate</span></a>
+          <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch color theme">🌙 <span>Dark</span></button>
+        </div>
+        <div id="page-content" aria-live="polite"></div>
+        <footer class="footer">A little practice goes a long way. <span><a href="#" data-page="feedback">Share feedback</a> · © Onestep Languages</span></footer>
+      </main>
+    </div>
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>
